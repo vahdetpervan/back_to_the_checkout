@@ -9,7 +9,7 @@ class CheckOut
       times = quantity / @rules[item]["special_offer"]["quantity"]
       remainder = quantity % @rules[item]["special_offer"]["quantity"]
 
-      total += @rules[item]["special_offer"]["price"] * times
+      total += @rules[item]["special_offer"]["discounted_price"] * times
       total += @rules[item]["unit_price"] * remainder
     end
   end
