@@ -3,10 +3,10 @@ require_relative '../lib/check_out'
 
 class TestPrice < Minitest::Test
   RULES = {
-    "A" => { "price" => 50, "special_offer" => { "quantity" => 3, "price" => 130 } },
-    "B" => { "price" => 30, "special_offer" => { "quantity" => 2, "price" => 45 } },
-    "C" => { "price" => 20, "special_offer" => { "quantity" => 1, "price" => 20 } },
-    "D" => { "price" => 15, "special_offer" => { "quantity" => 1, "price" => 15  } }
+    "A" => { "unit_price" => 50, "special_offer" => { "quantity" => 3, "price" => 130 } },
+    "B" => { "unit_price" => 30, "special_offer" => { "quantity" => 2, "price" => 45 } },
+    "C" => { "unit_price" => 20, "special_offer" => { "quantity" => 1, "price" => 20 } },
+    "D" => { "unit_price" => 15, "special_offer" => { "quantity" => 1, "price" => 15  } }
   }
 
   def price(goods)
