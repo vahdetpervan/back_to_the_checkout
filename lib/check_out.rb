@@ -5,12 +5,13 @@ class CheckOut
   end
 
   def total
-    @items.tally.inject(0) do |total, (item, quantity)|
-      times = quantity / @rules[item]["special_offer"]["quantity"]
-      remainder = quantity % @rules[item]["special_offer"]["quantity"]
+    @items.tally.sum do |item, quantity|
+      product_obj = @rules[item]
+      next product_obj.unit_price * quantity unless product_obj.special_offer_available?
 
-      total += @rules[item]["special_offer"]["discounted_price"] * times
-      total += @rules[item]["unit_price"] * remainder
+      offer_rules = product_obj.special_offer_rules
+      times, remainder = quantity.divmod(offer_rules[:quantity])
+      (offer_rules[:price] * times) + (product_obj.unit_price * remainder)
     end
   end
 

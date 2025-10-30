@@ -1,12 +1,16 @@
 require 'minitest/autorun'
 require_relative '../lib/check_out'
+require_relative '../lib/products/a.rb'
+require_relative '../lib/products/b.rb'
+require_relative '../lib/products/c.rb'
+require_relative '../lib/products/d.rb'
 
 class TestPrice < Minitest::Test
   RULES = {
-    "A" => { "unit_price" => 50, "special_offer" => { "quantity" => 3, "discounted_price" => 130 } },
-    "B" => { "unit_price" => 30, "special_offer" => { "quantity" => 2, "discounted_price" => 45 } },
-    "C" => { "unit_price" => 20, "special_offer" => { "quantity" => 1, "discounted_price" => 20 } },
-    "D" => { "unit_price" => 15, "special_offer" => { "quantity" => 1, "discounted_price" => 15  } }
+    "A" => Products::A.new,
+    "B" => Products::B.new,
+    "C" => Products::C.new,
+    "D" => Products::D.new
   }
 
   def price(goods)
