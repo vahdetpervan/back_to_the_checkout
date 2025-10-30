@@ -7,10 +7,10 @@ require_relative '../lib/products/d.rb'
 
 class TestPrice < Minitest::Test
   RULES = {
-    "A" => Products::A.new,
-    "B" => Products::B.new,
-    "C" => Products::C.new,
-    "D" => Products::D.new
+    "A" => Products::A,
+    "B" => Products::B,
+    "C" => Products::C,
+    "D" => Products::D
   }
 
   def price(goods)
