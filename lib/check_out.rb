@@ -10,8 +10,8 @@ class CheckOut
       next product_obj.unit_price * quantity unless product_obj.special_offer_available?
 
       offer_rules = product_obj.special_offer_rules
-      times, remainder = quantity.divmod(offer_rules[:quantity])
-      (offer_rules[:price] * times) + (product_obj.unit_price * remainder)
+      quotient, modulus = quantity.divmod(offer_rules[:quantity])
+      (offer_rules[:price] * quotient) + (product_obj.unit_price * modulus)
     end
   end
 
